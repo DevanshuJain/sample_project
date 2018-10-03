@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="ad.size" content="width=728, height=90">
+    <title>Ad Banner: 728x90</title>
+    <link rel="stylesheet" href="banner_728x90_data/style.css">
+    <script type="text/javascript">
+var clickTag = "https://www.flipkart.com/mediatek-store"; </script>
+<script type="text/javascript">
+    
+      (function() {
+        var relegateNavigation = '';
+        var handleClickTagMessage = function(e) {
+          try {
+            var eventData = JSON.parse(e.data);
+          } catch (err) {
+            return;
+          }
+          if (eventData.isInitClickTag) {
+            if (eventData.clickTags) {
+              for (var i = 0; i < eventData.clickTags.length; i++) {
+                var clkTag = eventData.clickTags[i];
+                window[clkTag.name] = clkTag.url;
+              }
+            } else if (eventData.clickTag) {
+              window.clickTag = eventData.clickTag;
+            }
+            relegateNavigation = eventData.relegateNavigation;
+          }
+        };
+
+        if (open.call) {
+          window.open = function(open) {
+            return function(url, name, features) {
+              if (relegateNavigation === 'parent') {
+                var message = {'clickTag': url, 'isPostClickTag': true};
+                parent.postMessage(JSON.stringify(message), '*');
+              } else {
+                var args = [url, name];
+                if (features) {
+                  args.push(features);
+                }
+                open.apply(window, args);
+              }
+            };
+          }(window.open);
+        }
+
+        if (window.addEventListener) {
+          window.addEventListener(
+              'message', handleClickTagMessage, false);
+        } else {
+          window.attachEvent('onmessage', handleClickTagMessage);
+        }
+      })();
+    
+  </script></head>
+
+<body>
+<a id="ad" href="javascript:window.open(window.clickTag)">
+    <div class="bg">
+        <img src="banner_728x90_data/bg.jpg" alt="background mediatek">
+    </div>
+    <div class="chip" style="bottom: 0px; opacity: 1;">
+        <img src="banner_728x90_data/chip.png" alt="mediatek chip">
+    </div>
+    <div class="copy1" style="top: 0px; opacity: 1;">
+        <img src="banner_728x90_data/copy1.png" alt="This Chip Changes Everything">
+    </div>
+    <div class="button" style="opacity: 1;">
+        <img src="banner_728x90_data/button.png" alt="AI Enhanced imaging because the beauty is in the details. See the phones.">
+    </div>
+    <div class="border-bottom"></div>
+</a>
+
+<script src="banner_728x90_data/TweenMax.js"></script>
+<!-- {inject:ad-platform-lib-url} -->
+<script src="banner_728x90_data/script.js"></script>
+<!-- {inject:banner-controls} -->
+
+</body></html>

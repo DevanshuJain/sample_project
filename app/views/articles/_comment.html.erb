@@ -1,0 +1,8 @@
+<div id="comment_<%= comment.id %>">
+  <strong>Commenter:</strong>
+  <%= comment.commenter %><br />
+  <% if current_user.id == comment.user_id %>
+    <p class="edit_link" id="<%= comment.id %>" data-parent_id="<%= @article.id %>" >Edit</p>
+    <p class="destroy_link" data-id="<%= comment.id %>" data-parent_id="<%= @article.id %>" >Destroy</p>
+  <% end %>
+</div>

@@ -1,0 +1,12 @@
+<h2>Edit a Comment:</h2>
+<%= form_for @comment, url: {action: "update"} do |form| %>
+  <%= form.hidden_field :user_id, :value=> "#{current_user.id}" %>
+  <p>
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

@@ -1,0 +1,17 @@
+<h1>Admin articles</h1>
+
+<table class="table">
+  <tr>
+    <th>Title</th>
+    <th></th>
+  </tr>
+ 
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= link_to 'verify_post', verify_path(article) %></td>
+      <td><%= link_to 'destroy', article_path(article), method: :delete,
+                    data: { confirm: 'Are you sure?' }%></td>
+    </tr>
+  <% end %>
+</table>

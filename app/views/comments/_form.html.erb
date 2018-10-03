@@ -1,0 +1,14 @@
+<%= form_for @comment, url: {action: "update"}, :remote => true do |form| %>
+  <%= form.hidden_field :user_id, :value=> "#{current_user.id}" %>
+  <p>
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %>
+  </p>
+
+  <p>
+    <%= form.submit "update", class: 'btn btn-success' %>
+  </p>
+  <p class="btn btn-success">
+    <%= link_to 'Back', article_path(@article) %>
+  </p>
+<% end %>

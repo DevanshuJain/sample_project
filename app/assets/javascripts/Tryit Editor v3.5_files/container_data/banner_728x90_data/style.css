@@ -1,0 +1,45 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	display: block;
+}
+
+#ad {
+	position: relative;
+	width: 728px;
+	height: 90px;
+	display: block;
+	overflow: hidden;
+	border: 1px Solid #CCC;
+	box-sizing: border-box;
+}
+
+.border-bottom {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	border-bottom: 3px solid #f39a1e;	
+}
+
+.chip {
+	position: absolute;
+	bottom: -78px;
+	right: 0;
+}
+
+.copy1 {
+	position: absolute;
+	left: 0;
+	top: -90px;
+}
+
+.button {
+	opacity: 0;
+	bottom: 0;
+	left: 0;
+	position: absolute;
+}
